@@ -26,19 +26,20 @@ public class ResizingArrayDeque<Item> {
 	public void pushLeft(Item item) {
 		if (N == container.length)
 			resize(container.length * 2);
-		offsetRight(1);
-		if (first != 0)
-			first--;
-		container[first] = item;
+		if (N == 0)
+			container[first] = item;
+		else {
+			if (first == 0)
+				offsetRight(1);
+			container[--first] = item;
+		}
 		N++;
 	}
 
 	public void pushRight(Item item) {
 		if (N == container.length)
 			resize(container.length * 2);
-		container[++last] = item;
-		if (last == container.length)
-			last = 0; // wrap-around
+		container[last++] = item;
 		N++;
 	}
 
@@ -46,10 +47,9 @@ public class ResizingArrayDeque<Item> {
 		if (isEmpty())
 			throw new NoSuchElementException("ResizingArrayDeque underflow");
 		Item item = container[first];
+		container[first] = null;
 		first++;
 		N--;
-		if (first == container.length)
-			first = 0; // wrap-around
 		if (N > 0 && N * 4 == container.length)
 			resize(container.length / 2);
 		return item;
@@ -58,8 +58,8 @@ public class ResizingArrayDeque<Item> {
 	public Item popRight() {
 		if (isEmpty())
 			throw new NoSuchElementException("ResizingArrayDeque underflow");
-		Item item = container[last];
-		last--;
+		Item item = container[--last];
+		container[last] = null;
 		N--;
 		if (N > 0 && N * 4 == container.length)
 			resize(container.length / 2);
@@ -75,7 +75,7 @@ public class ResizingArrayDeque<Item> {
 		}
 		container = temp;
 		first = 0;
-		last = N - 1;
+		last = N;
 	}
 
 	@SuppressWarnings("unchecked")
@@ -93,7 +93,7 @@ public class ResizingArrayDeque<Item> {
 
 	public static void main(String[] args) {
 		ResizingArrayDeque<String> q = new ResizingArrayDeque<String>();
-		q.pushLeft("a1");
+		q.pushRight("a1");
 		q.pushLeft("a2");
 		q.pushRight("a3");
 		StdOut.print(q.popRight() + " ");
@@ -102,7 +102,7 @@ public class ResizingArrayDeque<Item> {
 		q.pushRight("a4");
 		q.pushRight("a5");
 		q.pushRight("a6");
-		StdOut.print(q.popRight() + " ");
+		StdOut.print(q.popLeft() + " ");
 		StdOut.print(q.popLeft() + " ");
 		StdOut.print(q.popLeft() + " ");
 		StdOut.print(q.popLeft() + " ");
