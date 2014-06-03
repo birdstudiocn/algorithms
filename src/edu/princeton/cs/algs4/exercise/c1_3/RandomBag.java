@@ -57,21 +57,25 @@ public class RandomBag<Item> implements Iterable<Item> {
 		private int current = 0;
 		private Item[] container;
 
-		@SuppressWarnings("unchecked")
 		public RandomIterator(Node<Item> first) {
 			if (first != null) {
-				Item[] temp = (Item[]) new Object[N];
-				container = (Item[]) new Object[N];
-				int i = 0;
-				do {
-					temp[i] = first.item;
-					first = first.next;
-					i++;
-				} while (first != null);
-				for (i = 0; i < temp.length; i++) {
-					int j = (i + 3) % 4;
-					container[j] = temp[i];
-				}
+				random(first);
+			}
+		}
+
+		@SuppressWarnings("unchecked")
+		private void random(Node<Item> first) {
+			Item[] temp = (Item[]) new Object[N];
+			container = (Item[]) new Object[N];
+			int i = 0;
+			do {
+				temp[i] = first.item;
+				first = first.next;
+				i++;
+			} while (first != null);
+			for (i = 0; i < temp.length; i++) {
+				int j = (i + 3) % 4;
+				container[j] = temp[i];
 			}
 		}
 
