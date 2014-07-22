@@ -1,0 +1,1 @@
+java -cp D:\research\code\algorithms\algorithms\lib\*;D:\research\code\algorithms\algorithms\bin edu.princeton.cs.algs4.QuickFindUF
