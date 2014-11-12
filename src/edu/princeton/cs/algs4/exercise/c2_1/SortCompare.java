@@ -3,6 +3,7 @@ package edu.princeton.cs.algs4.exercise.c2_1;
 import edu.princeton.cs.algs4.Heap;
 import edu.princeton.cs.algs4.Insertion;
 import edu.princeton.cs.algs4.Merge;
+import edu.princeton.cs.algs4.MergeX;
 import edu.princeton.cs.algs4.Quick;
 import edu.princeton.cs.algs4.Selection;
 import edu.princeton.cs.algs4.Shell;
@@ -23,8 +24,12 @@ public class SortCompare {
 			Selection.sort(a);
 		if (alg.equals("Shell"))
 			Shell.sort(a);
+		if (alg.equals("ShellX"))
+			ShellX.sort(a);
 		if (alg.equals("Merge"))
 			Merge.sort(a);
+		if (alg.equals("MergeX"))
+			MergeX.sort(a);
 		if (alg.equals("Quick"))
 			Quick.sort(a);
 		if (alg.equals("Heap"))
