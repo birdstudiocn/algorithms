@@ -3,11 +3,14 @@ package edu.princeton.cs.algs4.exercise.c2_1;
 import edu.princeton.cs.algs4.Heap;
 import edu.princeton.cs.algs4.Insertion;
 import edu.princeton.cs.algs4.Merge;
+import edu.princeton.cs.algs4.MergeBU;
 import edu.princeton.cs.algs4.MergeX;
 import edu.princeton.cs.algs4.Quick;
+import edu.princeton.cs.algs4.QuickX;
 import edu.princeton.cs.algs4.Selection;
 import edu.princeton.cs.algs4.Shell;
 import edu.princeton.cs.algs4.Stopwatch;
+import edu.princeton.cs.algs4.exercise.c2_2.MergeBUWriteBySam;
 import edu.princeton.cs.introcs.StdOut;
 import edu.princeton.cs.introcs.StdRandom;
 
@@ -28,10 +31,16 @@ public class SortCompare {
 			ShellX.sort(a);
 		if (alg.equals("Merge"))
 			Merge.sort(a);
+		if (alg.equals("MergeBU"))
+			MergeBU.sort(a);
+		if (alg.equals("MergeBUWriteBySam"))
+			MergeBUWriteBySam.sort(a);
 		if (alg.equals("MergeX"))
 			MergeX.sort(a);
 		if (alg.equals("Quick"))
 			Quick.sort(a);
+		if (alg.equals("QuickX"))
+			QuickX.sort(a);
 		if (alg.equals("Heap"))
 			Heap.sort(a);
 
