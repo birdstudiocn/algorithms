@@ -52,3 +52,29 @@ public class Frequency {
 			StdOut.println(records[i]);
 	}
 }
+
+class Record {
+	private String word;
+	private int freq;
+
+	Record(String word, int freq) {
+		this.word = word;
+		this.freq = freq;
+	}
+
+	public String getWord() {
+		return word;
+	}
+
+	public void setWord(String word) {
+		this.word = word;
+	}
+
+	public int getFreq() {
+		return freq;
+	}
+
+	public void setFreq(int freq) {
+		this.freq = freq;
+	}
+}
