@@ -12,8 +12,6 @@ package edu.princeton.cs.algs4.exercise.c2_5;
 
 import java.util.Arrays;
 
-import javax.annotation.processing.Processor;
-
 import edu.princeton.cs.algs4.MinPQ;
 import edu.princeton.cs.introcs.StdIn;
 import edu.princeton.cs.introcs.StdOut;
@@ -51,5 +49,10 @@ public class LPT {
 		while (!pq.isEmpty())
 			StdOut.println(pq.delMin());
 	}
+}
 
+class Processor {
+	void add(Job job) {
+
+	}
 }
